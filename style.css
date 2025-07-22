@@ -1,0 +1,129 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9fafc; /* fundo clarinho */
+  color: #333;
+  padding: 30px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Títulos */
+h1 {
+  color: #2c3e50; /* azul escuro */
+  font-weight: 700;
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h2 {
+  color: #34495e;
+  margin: 20px 0 10px;
+  font-weight: 600;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #e67e22; /* laranja */
+  padding-bottom: 5px;
+}
+
+/* Inputs e botão adiciona produto */
+input {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1.8px solid #dfe6e9;
+  border-radius: 6px;
+  margin-right: 15px;
+  width: 220px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #e67e22; /* laranja vivo */
+  outline: none;
+}
+
+button.adicionar {
+  background-color: #e67e22; /* laranja */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button.adicionar:hover {
+  background-color: #d35400; /* laranja mais escuro */
+}
+
+/* Listas */
+ul {
+  list-style: none;
+  margin-top: 15px;
+  padding-left: 0;
+}
+
+/* Produtos e carrinho - itens */
+#lista-produtos li, #carrinho li {
+  background: white;
+  border: 1px solid #dfe6e9;
+  border-radius: 6px;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+}
+
+/* Botões para editar e remover (ficam do lado dos produtos) */
+.botao-acao {
+  background: #e67e22;
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  margin-left: 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 0.9rem;
+}
+
+.botao-acao:hover {
+  background: #d35400;
+}
+
+/* Parágrafo total e quantidade */
+p {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 15px;
+  color: #2c3e50;
+  text-align: right;
+}
+
+#finalizar {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+#finalizar:hover {
+  background-color: #218838;
+}
