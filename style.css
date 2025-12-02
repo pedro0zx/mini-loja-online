@@ -127,3 +127,28 @@ p {
 #finalizar:hover {
   background-color: #218838;
 }
+
+#limpar {
+  margin-top: 15px;
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #e74c3c;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(231, 76, 60, 0.3);
+}
+
+#limpar:hover {
+  background-color: #c0392b;
+  box-shadow: 0 4px 8px rgba(231, 76, 60, 0.5);
+  transform: translateY(-2px);
+}
+
+#limpar:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(231, 76, 60, 0.3);
+}

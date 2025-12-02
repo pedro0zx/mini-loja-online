@@ -1,6 +1,46 @@
   let produtos = [];
   let carrinho = [];
 
+// ===== FUNÇÕES DE ARMAZENAMENTO LOCAL =====
+
+// Carrega dados do localStorage
+function carregarDados() {
+  const produtosArmazenados = localStorage.getItem('produtos');
+  const carrinhoArmazenado = localStorage.getItem('carrinho');
+
+  if (produtosArmazenados) {
+    produtos = JSON.parse(produtosArmazenados);
+  }
+  if (carrinhoArmazenado) {
+    carrinho = JSON.parse(carrinhoArmazenado);
+  }
+
+  atualizarListaProdutos();
+  atualizarCarrinho();
+}
+
+// Salva produtos no localStorage
+function salvarProdutos() {
+  localStorage.setItem('produtos', JSON.stringify(produtos));
+}
+
+// Salva carrinho no localStorage
+function salvarCarrinho() {
+  localStorage.setItem('carrinho', JSON.stringify(carrinho));
+}
+
+// Limpa todo o armazenamento local
+function limparArmazenamento() {
+  localStorage.removeItem('produtos');
+  localStorage.removeItem('carrinho');
+  produtos = [];
+  carrinho = [];
+  atualizarListaProdutos();
+  atualizarCarrinho();
+}
+
+// ===== FUNÇÕES DE PRODUTOS E CARRINHO =====
+
 // Adiciona um produto ao cadastro
 function adicionarProduto() {
   const nomeInput = document.getElementById('nome');
@@ -29,6 +69,7 @@ function adicionarProduto() {
   quantidadeInput.value = 1;
 
   atualizarListaProdutos();
+  salvarProdutos();
 }
 
 // Atualiza lista de produtos cadastrados
@@ -79,6 +120,7 @@ function editarProduto(index) {
 
   atualizarListaProdutos();
   atualizarCarrinho();
+  salvarProdutos();
 }
 
 // Remove produto (se não estiver no carrinho)
@@ -93,6 +135,7 @@ function removerProduto(index) {
 
   produtos.splice(index, 1);
   atualizarListaProdutos();
+  salvarProdutos();
 }
 
 // Adiciona produto ao carrinho (quantidade 1, respeitando estoque)
@@ -116,6 +159,8 @@ function adicionarAoCarrinho(index) {
 
   atualizarListaProdutos();
   atualizarCarrinho();
+  salvarProdutos();
+  salvarCarrinho();
 }
 
 // Atualiza a lista do carrinho, com inputs para editar quantidade
@@ -196,6 +241,8 @@ function editarQuantidadeCarrinho(index, novaQtd) {
 
   atualizarListaProdutos();
   atualizarCarrinho();
+  salvarProdutos();
+  salvarCarrinho();
 }
 
 // Remove item do carrinho e repõe estoque
@@ -210,6 +257,8 @@ function removerDoCarrinho(index) {
   carrinho.splice(index, 1);
   atualizarListaProdutos();
   atualizarCarrinho();
+  salvarProdutos();
+  salvarCarrinho();
 }
 
 function finalizarCompra() {
@@ -233,4 +282,10 @@ function finalizarCompra() {
 
   atualizarCarrinho();
   atualizarListaProdutos();
+  salvarProdutos();
+  salvarCarrinho();
 }
+
+// Carrega dados ao abrir a página
+document.addEventListener('DOMContentLoaded', carregarDados);
+
